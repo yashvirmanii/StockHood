@@ -1,0 +1,11 @@
+.searchBar-container {
+    width: 80%;
+    height: 3.5rem;
+}
+.searchBar{
+    margin: 7px;
+    width: 80%;
+    border-radius: 5px;
+    height: 2rem;
+    font-size: 20px;
+}
