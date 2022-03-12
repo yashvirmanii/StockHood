@@ -118,19 +118,27 @@ const DashBoard = ({ selectedStock }) => {
                     </Table>
                 </Col>
             </Panel>
-            <Grid fluid style={{ marginTop: "5px" }}>
-                <Row className="show-grid">
-                    <Col xs={24} sm={12} md={7} lg={5} style={{ height: '100vh', border: "5px solid black", borderRadius: '10px', overflow: 'hidden', overflowY: 'scroll' }}>
-                        <NewsPanel selectedStock={selectedStock} />
-                    </Col>
-                    <Col xs={24} sm={24} md={10} lg={14} style={{ height: '100vh', borderTop: "5px solid black", borderBottom: "5px solid black", borderRadius: '10px' }}>
-                        <MyPro selectedStock={selectedStock} />
-                    </Col>
-                    <Col xs={24} sm={12} md={7} lg={5} style={{ height: '100vh', border: "5px solid black", borderRadius: '10px', overflow: 'hidden', overflowY: 'scroll' }}>
-                        <PredictionPanel selectedStock={selectedStock} />
-                    </Col>
-                </Row>
-            </Grid>
+            {selectedStock != "" ?
+                <Grid fluid style={{ marginTop: "5px" }}>
+                    <Row className="show-grid">
+                        <Col xs={24} sm={12} md={7} lg={5} style={{ height: '100vh', border: "5px solid black", borderRadius: '10px', overflow: 'hidden', overflowY: 'scroll' }}>
+                            <NewsPanel selectedStock={selectedStock} />
+                        </Col>
+                        <Col xs={24} sm={24} md={10} lg={14} style={{ height: '100vh', borderTop: "5px solid black", borderBottom: "5px solid black", borderRadius: '10px' }}>
+                            <MyPro selectedStock={selectedStock} />
+                        </Col>
+                        <Col xs={24} sm={12} md={7} lg={5} style={{ height: '100vh', border: "5px solid black", borderRadius: '10px', overflow: 'hidden', overflowY: 'scroll' }}>
+                            <PredictionPanel selectedStock={selectedStock} />
+                        </Col>
+                    </Row>
+                </Grid>
+                :
+                <Grid fluid style={{ marginTop: "5px" }}>
+                    <div className="error-dashBoard">
+
+                    </div>
+                </Grid>
+            }
         </div >
     )
 }

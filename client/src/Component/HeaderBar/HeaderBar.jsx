@@ -20,11 +20,12 @@ const HeaderBar = ({ setSelectedStock, selectedStock }) => {
                             setSearch(value)
                         }
                     }}
+                    btnOptions={{
+                        onClick: () => {
+                            setSelectedStock(search)
+                        }
+                    }}
                 />
-                <Button
-                    style={{ height: "2.4rem", borderRadius: '5px', marginLeft: '-8px', cursor: "pointer" }}
-                    onClick={() => { setSelectedStock(search) }}
-                >Search</Button>
             </div>
             <div className="headerBar-rightEnd-side">
                 <span className='headerBar-contact'>Contact Us</span>

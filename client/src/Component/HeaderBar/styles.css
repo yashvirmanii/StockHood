@@ -21,10 +21,11 @@
 .headerBar-right-side {
     display: flex;
     align-items: center;
-    /* justify-content: center; */
     height: 4rem;
     width: 50%;
 }
 .headerBar-contact {
+    margin-right: 1rem;
+    margin-left: 1rem;
     cursor: pointer;
 }
