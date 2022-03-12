@@ -134,9 +134,18 @@ const DashBoard = ({ selectedStock }) => {
                 </Grid>
                 :
                 <Grid fluid style={{ marginTop: "5px" }}>
-                    <div className="error-dashBoard">
-
-                    </div>
+                    <Row className="show-grid">
+                        <Col xs={24} sm={12} md={7} lg={5} style={{ height: '100vh', border: "5px solid black", borderRadius: '10px', overflow: 'hidden', overflowY: 'scroll' }}>
+                            <NewsPanel selectedStock={selectedStock} />
+                        </Col>
+                        <Col xs={24} sm={24} md={10} lg={14} style={{ height: '100vh', borderTop: "5px solid black", borderBottom: "5px solid black", borderRadius: '10px' }}>
+                            <div className='error-dashboard'>
+                            </div>
+                        </Col>
+                        <Col xs={24} sm={12} md={7} lg={5} style={{ height: '100vh', border: "5px solid black", borderRadius: '10px', overflow: 'hidden', overflowY: 'scroll' }}>
+                            <PredictionPanel selectedStock={selectedStock} />
+                        </Col>
+                    </Row>
                 </Grid>
             }
         </div >
