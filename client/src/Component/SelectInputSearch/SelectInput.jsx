@@ -1,12 +1,9 @@
-import { InputGroup, Input, Button } from 'rsuite';
+import { InputGroup, Input } from 'rsuite';
 import './styles.css';
 
-const SelectInputSearch = ({ placeholder, ...props }) => (
+const SelectInputSearch = ({ inputOptions, placeholder, ...props }) => (
     <InputGroup {...props} inside className='searchBar-container'>
-        <Input placeholder={placeholder} className='searchBar' />
-        <Button style={{ height: "2.4rem", borderRadius: '5px', marginLeft: '-8px', cursor: "pointer" }}>
-            Search
-        </Button>
+        <Input placeholder={placeholder} className='searchBar' {...inputOptions} />
     </InputGroup>
 );
 

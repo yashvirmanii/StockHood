@@ -2,13 +2,13 @@ import React from "react";
 import TradingViewWidget from 'react-tradingview-widget';
 import { Grid, Panel, Row, Col, Button } from "rsuite";
 import "./styles.css"
-const ChartPanel = () => {
-    const selectedStock = "brightcom-group-BRIH"
+const ChartPanel = ({ selectedStock }) => {
+    const symbol = `BSE:${selectedStock}`
     return (
         <div className="container">
             <div className="chart-container">
                 <TradingViewWidget
-                    symbol="BSE:BCG"
+                    symbol={symbol}
                     locale="in"
                     autosize
                 />
