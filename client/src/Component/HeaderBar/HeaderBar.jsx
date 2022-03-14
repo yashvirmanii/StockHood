@@ -7,7 +7,7 @@ import "./styles.css"
 const HeaderBar = ({ setSelectedStock, selectedStock }) => {
     const [search, setSearch] = useState(selectedStock)
     return (
-        <div className='main-container'>
+        <header className='main-container'>
             <div className="headerBar-left-side">
                 <span className='headerBar-title'>StockHood</span>
             </div>
@@ -30,7 +30,7 @@ const HeaderBar = ({ setSelectedStock, selectedStock }) => {
             <div className="headerBar-rightEnd-side">
                 <span className='headerBar-contact'>Contact Us</span>
             </div>
-        </div>
+        </header>
     )
 }
 

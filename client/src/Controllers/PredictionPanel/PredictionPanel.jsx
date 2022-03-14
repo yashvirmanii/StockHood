@@ -4,8 +4,8 @@ import { Grid, Panel, Row, Col } from "rsuite";
 const PredictionPanel = () => {
     return (
         <div>
-            <Panel shaded bordered bodyFill style={{ display: 'inline-block', width: "100%", background: "#80edb7" }}>
-                <h3>Stock Predictions</h3>
+            <Panel shaded bordered bodyFill style={{ display: 'inline-block', width: "100%", background: "#80edb7", cursor: 'default' }}>
+                <h3>Brokers Research</h3>
             </Panel>
             <Panel shaded bordered bodyFill style={{ display: 'inline-block', width: "100%" }}>
                 <Panel header="RSUITE">

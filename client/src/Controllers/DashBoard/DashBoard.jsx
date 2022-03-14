@@ -10,7 +10,7 @@ const DashBoard = ({ selectedStock }) => {
     const { Column, Cell, HeaderCell } = Table;
     return (
         <div className='dashBoard-container'>
-            <Panel header="Indices" shaded collapsible style={{ marginBottom: '10px' }}>
+            <Panel header="INDICES" shaded collapsible style={{ marginBottom: '10px', marginTop: '4rem' }}>
                 <Col md={24}>
                     <Table
                         // ref={tableRef}
@@ -140,6 +140,7 @@ const DashBoard = ({ selectedStock }) => {
                         </Col>
                         <Col xs={24} sm={24} md={10} lg={14} style={{ height: '100vh', borderTop: "5px solid black", borderBottom: "5px solid black", borderRadius: '10px' }}>
                             <div className='error-dashboard'>
+
                             </div>
                         </Col>
                         <Col xs={24} sm={12} md={7} lg={5} style={{ height: '100vh', border: "5px solid black", borderRadius: '10px', overflow: 'hidden', overflowY: 'scroll' }}>
