@@ -25,7 +25,7 @@ app.get('/api/indices', (req, res) => {
                 $('tr', html).each(function () {
                     const indice = $('td.PR').text()
                     const oneYearCh = $('td:nth-child(2)')
-                    console.log(oneYearCh)
+                    // console.log(oneYearCh)
                 })
                 // const title = $(this).text()
                 // let address = $(this).attr('href');
@@ -42,29 +42,29 @@ app.get('/api/indices', (req, res) => {
         }).catch(err => console.log(err.message))
 })
 
-app.get('/api/stock/:symbol', (req, res) => {
-    const symbol = req.params.symbol
-    axios.get(specificPaper)
-        .then((response) => {
-            const html = response.data
-            const $ = cheerio.load(html)
-            const specificStock = []
+// app.get('/api/stock/:symbol', (req, res) => {
+//     const symbol = req.params.symbol
+//     axios.get(specificPaper)
+//         .then((response) => {
+//             const html = response.data
+//             const $ = cheerio.load(html)
+//             const specificStock = []
 
-            $('a:contains("climate")', html).each(function () {
-                const title = $(this).text()
-                let address = $(this).attr('href');
-                if (address.charAt(0) === '/') {
-                    address = `${specificPaperBase}${address}`
-                }
-                specificStock.push({
-                    source: newsId,
-                    title,
-                    address
-                })
-            })
-            res.json(specificStock)
-        }).catch(err => console.log(err.message))
-})
+//             $('a:contains("climate")', html).each(function () {
+//                 const title = $(this).text()
+//                 let address = $(this).attr('href');
+//                 if (address.charAt(0) === '/') {
+//                     address = `${specificPaperBase}${address}`
+//                 }
+//                 specificStock.push({
+//                     source: newsId,
+//                     title,
+//                     address
+//                 })
+//             })
+//             res.json(specificStock)
+//         }).catch(err => console.log(err.message))
+// })
 
 app.get('/api/news/', (req, res) => {
     let symbol = "Adani Power"
