@@ -1,17 +1,16 @@
 import React from 'react'
-import { Grid, Panel, Row, Col, Table } from "rsuite";
+import { Grid, Panel, Row, Col } from "rsuite";
 import NewsPanel from '../NewsPanel/NewsPanel';
 import PredictionPanel from '../PredictionPanel/PredictionPanel';
 import MyPro from "../ChartPanel/ChartPanel"
-import moment from "moment";
 import "./styles.css"
 
-const DashBoard = ({ selectedStock }) => {
-    const { Column, Cell, HeaderCell } = Table;
+const DashBoard = ({ selectedStock, allNews, predictions, portfolio }) => {
+    // const { Column, Cell, HeaderCell } = Table;
     return (
         <div className='dashBoard-container'>
-            <Panel header="INDICES" shaded collapsible style={{ marginBottom: '10px', marginTop: '4rem' }}>
-                <Col md={24}>
+            <Panel shaded collapsible style={{ marginBottom: '1px', marginTop: '4rem' }}>
+                {/* <Col md={24}>
                     <Table
                         // ref={tableRef}
                         affixHorizontalScrollbar
@@ -116,39 +115,21 @@ const DashBoard = ({ selectedStock }) => {
                             </Cell>
                         </Column>
                     </Table>
-                </Col>
+                </Col> */}
             </Panel>
-            {selectedStock != "" ?
-                <Grid fluid style={{ marginTop: "5px" }}>
-                    <Row className="show-grid">
-                        <Col xs={24} sm={12} md={7} lg={5} style={{ height: '100vh', border: "5px solid black", borderRadius: '10px', overflow: 'hidden', overflowY: 'scroll' }}>
-                            <NewsPanel selectedStock={selectedStock} />
-                        </Col>
-                        <Col xs={24} sm={24} md={10} lg={14} style={{ height: '100vh', borderTop: "5px solid black", borderBottom: "5px solid black", borderRadius: '10px' }}>
-                            <MyPro selectedStock={selectedStock} />
-                        </Col>
-                        <Col xs={24} sm={12} md={7} lg={5} style={{ height: '100vh', border: "5px solid black", borderRadius: '10px', overflow: 'hidden', overflowY: 'scroll' }}>
-                            <PredictionPanel selectedStock={selectedStock} />
-                        </Col>
-                    </Row>
-                </Grid>
-                :
-                <Grid fluid style={{ marginTop: "5px" }}>
-                    <Row className="show-grid">
-                        <Col xs={24} sm={12} md={7} lg={5} style={{ height: '100vh', border: "5px solid black", borderRadius: '10px', overflow: 'hidden', overflowY: 'scroll' }}>
-                            <NewsPanel selectedStock={selectedStock} />
-                        </Col>
-                        <Col xs={24} sm={24} md={10} lg={14} style={{ height: '100vh', borderTop: "5px solid black", borderBottom: "5px solid black", borderRadius: '10px' }}>
-                            <div className='error-dashboard'>
-
-                            </div>
-                        </Col>
-                        <Col xs={24} sm={12} md={7} lg={5} style={{ height: '100vh', border: "5px solid black", borderRadius: '10px', overflow: 'hidden', overflowY: 'scroll' }}>
-                            <PredictionPanel selectedStock={selectedStock} />
-                        </Col>
-                    </Row>
-                </Grid>
-            }
+            <Grid fluid style={{ marginTop: "1px" }}>
+                <Row className="show-grid">
+                    <Col xs={24} sm={12} md={7} lg={5} style={{ height: '100vh', border: "5px solid black", borderRadius: '10px', overflow: 'hidden', overflowY: 'scroll' }}>
+                        <NewsPanel selectedStock={selectedStock} allNews={allNews} />
+                    </Col>
+                    <Col xs={24} sm={24} md={10} lg={14} style={{ height: '100vh', borderTop: "5px solid black", borderBottom: "5px solid black", borderRadius: '10px' }}>
+                        <MyPro selectedStock={selectedStock} portfolio={portfolio} />
+                    </Col>
+                    <Col xs={24} sm={12} md={7} lg={5} style={{ height: '100vh', border: "5px solid black", borderRadius: '10px', overflow: 'hidden', overflowY: 'scroll' }}>
+                        <PredictionPanel selectedStock={selectedStock} predictions={predictions} />
+                    </Col>
+                </Row>
+            </Grid>
         </div >
     )
 }

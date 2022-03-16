@@ -1,20 +1,20 @@
 import React from "react";
 import TradingViewWidget from 'react-tradingview-widget';
-import { Grid, Panel, Row, Col, Button } from "rsuite";
+import { Panel, Row, Col, Button } from "rsuite";
 import "./styles.css"
-const ChartPanel = ({ selectedStock }) => {
+const ChartPanel = ({ selectedStock, portfolio }) => {
     const symbol = `BSE:${selectedStock}`
     return (
         <div className="container">
             <div className="chart-container">
                 <TradingViewWidget
-                    symbol={symbol}
+                    symbol={selectedStock === "" ? "BSE:TCS" : symbol}
                     locale="in"
                     autosize
                 />
             </div>
             <div className="info-container">
-                <Panel header="Company Report" shaded style={{ marginBottom: '10px' }}>
+                <Panel header="Big Sharks Portfolio" shaded style={{ marginBottom: '10px' }}>
                     <div className="btn-background">
                         <Button
                             size="md"
@@ -28,36 +28,26 @@ const ChartPanel = ({ selectedStock }) => {
                         >Trade via zerodha</Button>
                     </div>
                     <Row>
-                        <Col md={6} sm={12}>
-                            <Panel bordered header="BSE Sensex" className='Indices-head'>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo minima aperiam repellat quod facilis. Possimus quidem voluptatem repellendus accusamus placeat sint nulla, magni doloribus quaerat corrupti. Dolorum magnam dignissimos fuga?
-                            </Panel>
-                        </Col>
-                        <Col md={6} sm={12}>
-                            <Panel bordered header="Nifty 50" className='Indices-head'>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo minima aperiam repellat quod facilis. Possimus quidem voluptatem repellendus accusamus placeat sint nulla, magni doloribus quaerat corrupti. Dolorum magnam dignissimos fuga?
-                            </Panel>
-                        </Col>
-                        <Col md={6} sm={12}>
-                            <Panel bordered header="Nifty Next 50" className='Indices-head'>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo minima aperiam repellat quod facilis. Possimus quidem voluptatem repellendus accusamus placeat sint nulla, magni doloribus quaerat corrupti. Dolorum magnam dignissimos fuga?
-                            </Panel>
-                        </Col>
-                        <Col md={6} sm={12}>
-                            <Panel bordered header="Nifty Bank" className='Indices-head'>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo minima aperiam repellat quod facilis. Possimus quidem voluptatem repellendus accusamus placeat sint nulla, magni doloribus quaerat corrupti. Dolorum magnam dignissimos fuga?
-                            </Panel>
-                        </Col>
-                        <Col md={6} sm={12}>
-                            <Panel bordered header="Nifty Bank" className='Indices-head'>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo minima aperiam repellat quod facilis. Possimus quidem voluptatem repellendus accusamus placeat sint nulla, magni doloribus quaerat corrupti. Dolorum magnam dignissimos fuga?
-                            </Panel>
-                        </Col>
-                        <Col md={6} sm={12}>
-                            <Panel bordered header="Nifty Bank" className='Indices-head'>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo minima aperiam repellat quod facilis. Possimus quidem voluptatem repellendus accusamus placeat sint nulla, magni doloribus quaerat corrupti. Dolorum magnam dignissimos fuga?
-                            </Panel>
-                        </Col>
+                        {portfolio.length > 0 && portfolio.map((investor) => (
+                            <a style={{ textDecoration: 'none', color: 'black', cursor: 'pointer' }}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    window.open(investor.link);
+                                }}>
+                                <Col md={6} sm={12} key={investor.id} style={{ height: '10rem' }}>
+                                    <Panel bordered header={investor.investor} className='Indices-head'>
+                                        <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                            <span>
+                                                Total Holding:- {investor.holding}
+                                            </span>
+                                            <span>
+                                                Total NetWorth:- {investor.netWorth}
+                                            </span>
+                                        </div>
+                                    </Panel>
+                                </Col>
+                            </a>
+                        ))}
                     </Row>
                 </Panel>
             </div>

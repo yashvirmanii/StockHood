@@ -1,165 +1,29 @@
 import React from 'react'
-import { Grid, Panel, Row, Col } from "rsuite";
+import { Panel } from "rsuite";
 
-const NewsPanel = () => {
+const NewsPanel = ({ allNews }) => {
     return (
         <div>
             <Panel shaded bordered bodyFill style={{ display: 'inline-block', width: "100%", background: "#80edb7", cursor: 'default' }}>
                 <h3>News Updates</h3>
             </Panel>
-            <Panel shaded bordered bodyFill style={{ display: 'inline-block', width: "100%" }}>
-                <Panel header="RSUITE">
-                    <p>
-                        <small>
-                            A suite of React components, sensible UI design, and a friendly development experience.
-                        </small>
-                    </p>
+            {allNews.length > 0 && allNews.map((article) => (
+                <Panel shaded bordered bodyFill style={{ display: 'inline-block', width: "100%" }} key={article.id}>
+                    <Panel header={article.title}>
+                        <div style={{ display: 'flex', flexDirection: 'column' }}>
+                            <small>
+                                {article.description}
+                            </small>
+                            <button
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    window.open(article.link);
+                                }}
+                            >Click to visit</button>
+                        </div>
+                    </Panel>
                 </Panel>
-            </Panel>
-            <Panel shaded bordered bodyFill style={{ display: 'inline-block', width: "100%" }}>
-                <Panel header="RSUITE">
-                    <p>
-                        <small>
-                            A suite of React components, sensible UI design, and a friendly development experience.
-                        </small>
-                    </p>
-                </Panel>
-            </Panel>
-            <Panel shaded bordered bodyFill style={{ display: 'inline-block', width: "100%" }}>
-                <Panel header="RSUITE">
-                    <p>
-                        <small>
-                            A suite of React components, sensible UI design, and a friendly development experience.
-                        </small>
-                    </p>
-                </Panel>
-            </Panel>
-            <Panel shaded bordered bodyFill style={{ display: 'inline-block', width: "100%" }}>
-                <Panel header="RSUITE">
-                    <p>
-                        <small>
-                            A suite of React components, sensible UI design, and a friendly development experience.
-                        </small>
-                    </p>
-                </Panel>
-            </Panel>
-            <Panel shaded bordered bodyFill style={{ display: 'inline-block', width: "100%" }}>
-                <Panel header="RSUITE">
-                    <p>
-                        <small>
-                            A suite of React components, sensible UI design, and a friendly development experience.
-                        </small>
-                    </p>
-                </Panel>
-            </Panel>
-            <Panel shaded bordered bodyFill style={{ display: 'inline-block', width: "100%" }}>
-                <Panel header="RSUITE">
-                    <p>
-                        <small>
-                            A suite of React components, sensible UI design, and a friendly development experience.
-                        </small>
-                    </p>
-                </Panel>
-            </Panel>
-            <Panel shaded bordered bodyFill style={{ display: 'inline-block', width: "100%" }}>
-                <Panel header="RSUITE">
-                    <p>
-                        <small>
-                            A suite of React components, sensible UI design, and a friendly development experience.
-                        </small>
-                    </p>
-                </Panel>
-            </Panel>
-            <Panel shaded bordered bodyFill style={{ display: 'inline-block', width: "100%" }}>
-                <Panel header="RSUITE">
-                    <p>
-                        <small>
-                            A suite of React components, sensible UI design, and a friendly development experience.
-                        </small>
-                    </p>
-                </Panel>
-            </Panel>
-            <Panel shaded bordered bodyFill style={{ display: 'inline-block', width: "100%" }}>
-                <Panel header="RSUITE">
-                    <p>
-                        <small>
-                            A suite of React components, sensible UI design, and a friendly development experience.
-                        </small>
-                    </p>
-                </Panel>
-            </Panel>
-            <Panel shaded bordered bodyFill style={{ display: 'inline-block', width: "100%" }}>
-                <Panel header="RSUITE">
-                    <p>
-                        <small>
-                            A suite of React components, sensible UI design, and a friendly development experience.
-                        </small>
-                    </p>
-                </Panel>
-            </Panel>
-            <Panel shaded bordered bodyFill style={{ display: 'inline-block', width: "100%" }}>
-                <Panel header="RSUITE">
-                    <p>
-                        <small>
-                            A suite of React components, sensible UI design, and a friendly development experience.
-                        </small>
-                    </p>
-                </Panel>
-            </Panel>
-            <Panel shaded bordered bodyFill style={{ display: 'inline-block', width: "100%" }}>
-                <Panel header="RSUITE">
-                    <p>
-                        <small>
-                            A suite of React components, sensible UI design, and a friendly development experience.
-                        </small>
-                    </p>
-                </Panel>
-            </Panel>
-            <Panel shaded bordered bodyFill style={{ display: 'inline-block', width: "100%" }}>
-                <Panel header="RSUITE">
-                    <p>
-                        <small>
-                            A suite of React components, sensible UI design, and a friendly development experience.
-                        </small>
-                    </p>
-                </Panel>
-            </Panel>
-            <Panel shaded bordered bodyFill style={{ display: 'inline-block', width: "100%" }}>
-                <Panel header="RSUITE">
-                    <p>
-                        <small>
-                            A suite of React components, sensible UI design, and a friendly development experience.
-                        </small>
-                    </p>
-                </Panel>
-            </Panel>
-            <Panel shaded bordered bodyFill style={{ display: 'inline-block', width: "100%" }}>
-                <Panel header="RSUITE">
-                    <p>
-                        <small>
-                            A suite of React components, sensible UI design, and a friendly development experience.
-                        </small>
-                    </p>
-                </Panel>
-            </Panel>
-            <Panel shaded bordered bodyFill style={{ display: 'inline-block', width: "100%" }}>
-                <Panel header="RSUITE">
-                    <p>
-                        <small>
-                            A suite of React components, sensible UI design, and a friendly development experience.
-                        </small>
-                    </p>
-                </Panel>
-            </Panel>
-            <Panel shaded bordered bodyFill style={{ display: 'inline-block', width: "100%" }}>
-                <Panel header="RSUITE">
-                    <p>
-                        <small>
-                            A suite of React components, sensible UI design, and a friendly development experience.
-                        </small>
-                    </p>
-                </Panel>
-            </Panel>
+            ))}
         </div>
     )
 }
